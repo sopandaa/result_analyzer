@@ -113,3 +113,27 @@ elif selected == "Subject Analysis":
     st.dataframe(subject_avg)
 
 
+elif selected == "Pass / Fail":
+    pass_marks = st.slider("Select Passing Marks", 0, 100, 40)
+
+    df["Result"] = df["Marks"].apply(
+        lambda x: "Pass" if x >= pass_marks else "Fail"
+    )
+
+    st.subheader("📌 Result")
+    st.dataframe(df)
+
+    st.subheader("📊 Summary")
+    st.write(df["Result"].value_counts())
+  
+
+
+elif selected == "Pivot Table":
+    pivot = df.pivot_table(
+        values="Marks",
+        index="Name",
+        columns="Subject"
+    )
+
+    st.subheader("📑 Student vs Subject")
+    st.dataframe(pivot)
