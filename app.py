@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 
 st.set_page_config(page_title="Result Analyzer", layout="wide")
 
-st.title("A comprehensive result analysis system")
+st.title("Student Result Analyzer")
 
 with st.sidebar:
 
@@ -135,5 +135,5 @@ elif selected == "Pivot Table":
         columns="Subject"
     )
 
-    st.subheader("📑 Student vs Subject")
+    st.subheader("📑 Student v/s Subject")
     st.dataframe(pivot)
